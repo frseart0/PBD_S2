@@ -38,7 +38,7 @@ BEGIN
     -- Obtenemos el total de empleados para validar la transacción al final
     SELECT COUNT(*) INTO v_total_registros FROM empleado;
 
-    -- 2. ITERACIÓN (Requerimiento: Pauta letra a - Cursr implícito para recorrer todos los empleados)
+    -- 2. ITERACION
     FOR r_emp IN (
         SELECT e.id_emp, e.numrun_emp, e.dvrun_emp, e.pnombre_emp, e.snombre_emp,
                e.appaterno_emp, e.apmaterno_emp, e.sueldo_base, e.fecha_nac,
@@ -75,7 +75,7 @@ BEGIN
           h) Si años < 10 agregar 'X'
         */
 
-        -- Cálculo de años trabajados
+        -- Calculo de años trabajados
         v_annos_trabajados := TRUNC(MONTHS_BETWEEN(v_fecha_proc, v_fecha_cont) / 12);
 
         v_usuario_gen :=
